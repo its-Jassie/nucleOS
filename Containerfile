@@ -1,5 +1,9 @@
 FROM quay.io/fedora/fedora-coreos:stable
 
+RUN rpm-ostree override \
+        remove nfs-utils-coreos \
+        --install nfs-utils
+
 #install cockpit-{extensions}
 RUN rpm-ostree install \
         cockpit-machines \
